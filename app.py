@@ -558,7 +558,7 @@ if authenticate_user():
             age_selection = st.slider('Age:',
                             min_value=0,
                             max_value=max(ages),
-                            value=(min(ages),max(ages)))
+                            value=(0,max(ages)))
             gp_selection = st.multiselect('Grama Panchayath',
                                     gp,
                                     default=gp,
