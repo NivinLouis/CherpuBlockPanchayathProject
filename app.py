@@ -556,7 +556,7 @@ if authenticate_user():
                                     )
         with st.expander("Basic Filtering"):
             age_selection = st.slider('Age:',
-                            min_value=min(ages),
+                            min_value=0,
                             max_value=max(ages),
                             value=(min(ages),max(ages)))
             gp_selection = st.multiselect('Grama Panchayath',
