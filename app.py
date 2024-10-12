@@ -14,7 +14,7 @@ st.set_page_config(
 
 
 st.logo("assets/logo.png")
-st.title(" Care Connect - v1.05")
+st.title(" Care Connect ")
 
 def print_pdf():
     # --- LOAD PDF ----
@@ -72,7 +72,7 @@ col11, col12, col13 = st.columns([1,3,1])
 with col12:
     container = st.container(border=True)
     def creds_entered():
-        if st.session_state["user"].strip()=="sadmin" and st.session_state["passwd"].strip()=="sadmin":
+        if st.session_state["user"].strip()=="cherpu@2024" and st.session_state["passwd"].strip()=="cherpu@2024":
             st.session_state["authenticated"] = True
         else:
             st.session_state["authenticated"] = False
@@ -342,9 +342,9 @@ if authenticate_user():
             global family_selection,disability_selection,medical_selection,uid_card_selection,parental_selection,continnous_support_for_adl_selection,guardianship_certificate_selection
             with st.expander("Filter"):
                 family_selection = st.slider('No.of Family Members',
-                                                        min_value=min(family_members),
+                                                        min_value=0,
                                                         max_value=max(family_members),
-                                                        value=(min(family_members),max(family_members)))
+                                                        value=(0,max(family_members)))
                 disability_selection = st.multiselect('Type of Disability',
                                                         type_of_disabilities,
                                                         default=type_of_disabilities)
@@ -394,9 +394,9 @@ if authenticate_user():
             with st.expander("Economic"):
                 global personal_income_selection,asset_status_selection,status_of_accomodation_selection,type_of_house_selection,employment_status_selection,annual_income_selection,ownership_assets_selection,employement_skills_selection,financial_needs_selection,vocational_assesment_conducted_selection,training_needs_selection
                 personal_income_selection = st.slider('Personal Income',
-                                            min_value=min(personal_income),
-                                            max_value=min(personal_income),
-                                            value=(min(personal_income),max(personal_income)))
+                                            min_value=0,
+                                            max_value=max(personal_income),
+                                            value=(0,max(personal_income)))
                 status_of_accomodation_selection = st.multiselect('Status Of Accomodation',
                                                     status_of_accomodation,
                                                     default=status_of_accomodation)
@@ -408,9 +408,9 @@ if authenticate_user():
                                                     default=employment_status)
             
                 annual_income_selection = st.slider('Annual Income',
-                                            min_value=min(annual_income),
+                                            min_value=0,
                                             max_value=max(annual_income),
-                                            value=(min(annual_income),max(annual_income)))
+                                            value=(0,max(annual_income)))
                 ownership_assets_selection = st.multiselect('Ownership Assets',
                                                 ownership_assets,
                                                 default=ownership_assets)
