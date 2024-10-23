@@ -12,9 +12,18 @@ st.set_page_config(
     initial_sidebar_state='collapsed'
 )
 
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 
 st.logo("assets/logo.png")
-st.title(" Care Connect ")
+st.title(" Care Connect")
 
 def print_pdf():
     # --- LOAD PDF ----
@@ -342,9 +351,9 @@ if authenticate_user():
             global family_selection,disability_selection,medical_selection,uid_card_selection,parental_selection,continnous_support_for_adl_selection,guardianship_certificate_selection
             with st.expander("Filter"):
                 family_selection = st.slider('No.of Family Members',
-                                                        min_value=0,
+                                                        min_value=min(family_members),
                                                         max_value=max(family_members),
-                                                        value=(0,max(family_members)))
+                                                        value=(min(family_members),max(family_members)))
                 disability_selection = st.multiselect('Type of Disability',
                                                         type_of_disabilities,
                                                         default=type_of_disabilities)
@@ -394,9 +403,9 @@ if authenticate_user():
             with st.expander("Economic"):
                 global personal_income_selection,asset_status_selection,status_of_accomodation_selection,type_of_house_selection,employment_status_selection,annual_income_selection,ownership_assets_selection,employement_skills_selection,financial_needs_selection,vocational_assesment_conducted_selection,training_needs_selection
                 personal_income_selection = st.slider('Personal Income',
-                                            min_value=0,
-                                            max_value=max(personal_income),
-                                            value=(0,max(personal_income)))
+                                            min_value=min(personal_income),
+                                            max_value=min(personal_income),
+                                            value=(min(personal_income),max(personal_income)))
                 status_of_accomodation_selection = st.multiselect('Status Of Accomodation',
                                                     status_of_accomodation,
                                                     default=status_of_accomodation)
@@ -408,9 +417,9 @@ if authenticate_user():
                                                     default=employment_status)
             
                 annual_income_selection = st.slider('Annual Income',
-                                            min_value=0,
+                                            min_value=min(annual_income),
                                             max_value=max(annual_income),
-                                            value=(0,max(annual_income)))
+                                            value=(min(annual_income),max(annual_income)))
                 ownership_assets_selection = st.multiselect('Ownership Assets',
                                                 ownership_assets,
                                                 default=ownership_assets)
@@ -556,9 +565,9 @@ if authenticate_user():
                                     )
         with st.expander("Basic Filtering"):
             age_selection = st.slider('Age:',
-                            min_value=0,
+                            min_value=min(ages),
                             max_value=max(ages),
-                            value=(0,max(ages)))
+                            value=(min(ages),max(ages)))
             gp_selection = st.multiselect('Grama Panchayath',
                                     gp,
                                     default=gp,
@@ -586,8 +595,7 @@ if authenticate_user():
         on = st.toggle("Show Advanced Filtering Menu")
         if on:
             _additional_filter()
-        st.link_button("Meet Our Team ✨", "https://www.vidyaacademy.ac.in/")
-        #st.markdown("[Meet Our Team 🎈](https://www.vidyaacademy.ac.in/)")
+        st.link_button("Meet Our Team ✨", "https://nae-vast.github.io/about/")
                 
 
 
