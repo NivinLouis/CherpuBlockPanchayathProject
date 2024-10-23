@@ -353,7 +353,7 @@ if authenticate_user():
                 family_selection = st.slider('No.of Family Members',
                                                         min_value=0,
                                                         max_value=max(family_members),
-                                                        value=(min(family_members),max(family_members)))
+                                                        value=(0,max(family_members)))
                 disability_selection = st.multiselect('Type of Disability',
                                                         type_of_disabilities,
                                                         default=type_of_disabilities)
@@ -405,7 +405,7 @@ if authenticate_user():
                 personal_income_selection = st.slider('Personal Income',
                                             min_value=0,
                                             max_value=min(personal_income),
-                                            value=(min(personal_income),max(personal_income)))
+                                            value=(0,max(personal_income)))
                 status_of_accomodation_selection = st.multiselect('Status Of Accomodation',
                                                     status_of_accomodation,
                                                     default=status_of_accomodation)
@@ -419,7 +419,7 @@ if authenticate_user():
                 annual_income_selection = st.slider('Annual Income',
                                             min_value=0,
                                             max_value=max(annual_income),
-                                            value=(min(annual_income),max(annual_income)))
+                                            value=(0,max(annual_income)))
                 ownership_assets_selection = st.multiselect('Ownership Assets',
                                                 ownership_assets,
                                                 default=ownership_assets)
@@ -567,7 +567,7 @@ if authenticate_user():
             age_selection = st.slider('Age:',
                             min_value=0,
                             max_value=max(ages),
-                            value=(min(ages),max(ages)))
+                            value=(0,max(ages)))
             gp_selection = st.multiselect('Grama Panchayath',
                                     gp,
                                     default=gp,
