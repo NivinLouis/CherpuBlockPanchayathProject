@@ -404,7 +404,7 @@ if authenticate_user():
                 global personal_income_selection,asset_status_selection,status_of_accomodation_selection,type_of_house_selection,employment_status_selection,annual_income_selection,ownership_assets_selection,employement_skills_selection,financial_needs_selection,vocational_assesment_conducted_selection,training_needs_selection
                 personal_income_selection = st.slider('Personal Income',
                                             min_value=0,
-                                            max_value=min(personal_income),
+                                            max_value=max(personal_income),
                                             value=(0,max(personal_income)))
                 status_of_accomodation_selection = st.multiselect('Status Of Accomodation',
                                                     status_of_accomodation,
