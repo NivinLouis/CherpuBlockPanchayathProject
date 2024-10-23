@@ -351,7 +351,7 @@ if authenticate_user():
             global family_selection,disability_selection,medical_selection,uid_card_selection,parental_selection,continnous_support_for_adl_selection,guardianship_certificate_selection
             with st.expander("Filter"):
                 family_selection = st.slider('No.of Family Members',
-                                                        min_value=min(family_members),
+                                                        min_value=0,
                                                         max_value=max(family_members),
                                                         value=(min(family_members),max(family_members)))
                 disability_selection = st.multiselect('Type of Disability',
@@ -403,7 +403,7 @@ if authenticate_user():
             with st.expander("Economic"):
                 global personal_income_selection,asset_status_selection,status_of_accomodation_selection,type_of_house_selection,employment_status_selection,annual_income_selection,ownership_assets_selection,employement_skills_selection,financial_needs_selection,vocational_assesment_conducted_selection,training_needs_selection
                 personal_income_selection = st.slider('Personal Income',
-                                            min_value=min(personal_income),
+                                            min_value=0,
                                             max_value=min(personal_income),
                                             value=(min(personal_income),max(personal_income)))
                 status_of_accomodation_selection = st.multiselect('Status Of Accomodation',
@@ -417,7 +417,7 @@ if authenticate_user():
                                                     default=employment_status)
             
                 annual_income_selection = st.slider('Annual Income',
-                                            min_value=min(annual_income),
+                                            min_value=0,
                                             max_value=max(annual_income),
                                             value=(min(annual_income),max(annual_income)))
                 ownership_assets_selection = st.multiselect('Ownership Assets',
@@ -565,7 +565,7 @@ if authenticate_user():
                                     )
         with st.expander("Basic Filtering"):
             age_selection = st.slider('Age:',
-                            min_value=min(ages),
+                            min_value=0,
                             max_value=max(ages),
                             value=(min(ages),max(ages)))
             gp_selection = st.multiselect('Grama Panchayath',
